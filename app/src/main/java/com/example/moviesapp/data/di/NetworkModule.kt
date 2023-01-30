@@ -57,12 +57,12 @@ class NetworkModule {
     @Provides
     @Singleton
     @BaseUrl
-    fun provideBaseUrl() = BuildConfig.TMDB_API_URL
+    fun provideBaseUrl() = TMDB_API_URL
 
     @Provides
     @Singleton
     @ApiKey
-    fun provideApiKey() = BuildConfig.TMDB_API_KEY
+    fun provideApiKey() = TMDB_API_KEY
 
     @Retention(AnnotationRetention.BINARY)
     @Qualifier
@@ -74,5 +74,7 @@ class NetworkModule {
 
     companion object {
         const val API_KEY_QUERY_PARAM_NAME = "api_key"
+        const val TMDB_API_KEY = "cb36ac718db0df223addf7b14f15f7f0"
+        const val TMDB_API_URL = "https://api.themoviedb.org/3/"
     }
 }

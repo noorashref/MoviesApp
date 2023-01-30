@@ -5,13 +5,6 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
-Properties properties = new Properties()
-if (rootProject.file("local.properties").exists()) {
-    properties.load(rootProject.file("local.properties").newDataInputStream())
-}
-String systemTmdbApiKey = System.getenv("TMDB_API_KEY") ?: ""
-String tmdbApiKey = properties.getProperty("tmdb.api.key", systemTmdbApiKey)
-
 android {
     namespace 'com.example.moviesapp'
     compileSdk 33
@@ -27,8 +20,7 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
-        buildConfigField "String", "TMDB_API_URL", "\"https://api.themoviedb.org/3/\""
-        buildConfigField "String", "TMDB_API_KEY", "\"$tmdbApiKey\""
+
     }
 
     buildTypes {
